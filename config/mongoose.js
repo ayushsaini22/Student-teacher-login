@@ -5,6 +5,9 @@ mongoose.connect('mongodb://localhost/onlineclassroom_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
+  useCreateIndex: true,
+  useNewUrlParser: true
+
 });
 
 const db = mongoose.connection;
