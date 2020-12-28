@@ -1,31 +1,31 @@
-// import express
+// import required modules
 const express = require('express');
+const db = require('./config/mongoose');
+const passport = require('passport');
+const passportJWT = require('./config/passport-jwt-strategy');
+
 
 // start the express server
 const app = express();
 
+
 // setting port
 const port = 8000;
 
-// import mongodb  configuration
-const db = require('./config/mongoose');
-
-// import passport to authenticate user and requests
-const passport = require('passport');
-
-// import passport jwt strategy
-const passportJWT = require('./config/passport-jwt-strategy');
 
 // to parse form data
 app.use(express.urlencoded({ extended: true }));
 
-// initialize passport t
+
+// initialize passport 
 app.use(passport.initialize());
 
-// including routes
+
+// routes
 app.use('/', require('./routes'));
 
-// listen on the port
+
+// listen to the port
 app.listen(port, function (err) {
   if (err) {
     console.log('error:', err);
